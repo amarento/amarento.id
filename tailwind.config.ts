@@ -7,6 +7,10 @@ export default {
     extend: {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        buda: ["var(--font-buda)", ...fontFamily.sans],
+        phillips: ["var(--font-phillips)", ...fontFamily.sans],
+        nunito: ["var(--font-nunito)", ...fontFamily.sans],
+        "nunito-italic": ["var(--font-nunito-italic)", ...fontFamily.sans],
       },
     },
   },
