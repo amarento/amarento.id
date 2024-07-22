@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss"
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
   darkMode: ["class"],
@@ -61,6 +62,9 @@ const config = {
         "black": {
           default: "30302E"
         }
+      },
+      fontFamily: {
+        lagency: ["var(--font-lagency)", "serif", ...fontFamily.serif],
       },
       borderRadius: {
         lg: "var(--radius)",
