@@ -5,12 +5,12 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export default function HomePage() {
   return (
-    <main className="font-lora mx-5 flex flex-col justify-center bg-black-default text-center xl:mx-20">
+    <main className="font-lora mx-5 flex flex-col justify-center bg-black-default text-center md:mx-10 lg:mx-16 xl:mx-20">
       <nav className="mb-10 xl:mb-28">
         <div className="my-5 flex items-center justify-between xl:my-10">
-          <img className="h-6 w-6 xl:h-10 xl:w-10" src="/logo.png" alt="logo" />
+          <img className="h-8 w-8 lg:h-10 lg:w-10" src="/logo.svg" alt="logo" />
           <div className="flex flex-row items-center">
-            <a className="m-2 text-black-default xl:text-2xl">MENU</a>
+            <a className="m-2 text-black-default lg:text-2xl">MENU</a>
             <VscCircleLargeFilled />
           </div>
         </div>
@@ -22,10 +22,10 @@ export default function HomePage() {
           alt="flowerBG"
         />
         <div className="flex flex-col items-center">
-          <h1 className="mb-6 flex font-lagency text-4xl xl:mb-10 xl:max-w-4xl xl:text-8xl">
+          <h1 className="mb-6 flex font-lagency text-4xl sm:text-5xl lg:text-6xl xl:mb-10 xl:max-w-4xl xl:text-8xl">
             ENTRUST US WITH YOUR RSVP
           </h1>
-          <p className="mb-8 flex max-w-lg justify-center text-xs xl:mb-32 xl:max-w-4xl xl:text-2xl">
+          <p className="mb-8 max-w-screen-lg flex justify-center lg:text-2xl xl:mb-32 xl:max-w-4xl xl:text-2xl">
             Lorem ipsum dolor sit amet consectetur. Feugiat dolor arcu pulvinar
             et. Tempor id adipiscing et ac mauris a. Nunc viverra id ac nibh
             neque. Cum quam mi.
@@ -42,12 +42,12 @@ export default function HomePage() {
       <div>
         <div className="flex flex-col">
           <div className="mb-3 xl:mb-10">
-            <h2 className="font-lagency text-2xl xl:text-6xl">
+            <h2 className="font-lagency text-2xl sm:text-4xl lg:text-5xl xl:text-6xl">
               LOREM IPSUM DOLOR SIT AMET
             </h2>
           </div>
           <div className="mb-12 flex justify-center xl:mb-52">
-            <p className="max-w-lg text-xs xl:max-w-4xl xl:text-3xl">
+            <p className="max-w-screen-lg lg:text-2xl xl:max-w-4xl xl:text-3xl">
               Lorem ipsum dolor sit amet consectetur. Egestas sem integer
               viverra duis arcu tempor. Duis est ornare tellus duis adipiscing
               morbi. Mi dignissim netus risus mattis maecenas id viverra.
@@ -57,17 +57,17 @@ export default function HomePage() {
         </div>
       </div>
       <div>
-        <div className="flex flex-col xl:flex-row">
+        <div className="flex flex-col items-center xl:flex-row">
           <img
             className="mb-6 rounded-3xl bg-slate-200 object-cover xl:h-[847px] xl:w-[636px]"
             src="/flowerBG.svg"
             alt="IMG"
           />
           <div className="flex flex-col xl:ml-20 xl:mt-36">
-            <h3 className="mb-6 text-xl xl:mb-10 xl:text-5xl">
+            <h3 className="mb-6 text-xl sm:text-3xl md:text-4xl xl:mb-10 xl:text-5xl">
               Automated WhatsApp RSVP
             </h3>
-            <p className="mb-12 xl:text-3xl">
+            <p className="mb-12 max-w-screen-lg lg:text-2xl xl:text-3xl">
               Lorem ipsum dolor sit amet consectetur. Non velit euismod nulla
               iaculis turpis augue condimentum. Amet nec at risus laoreet
               ornare. In urna vel mauris iaculis morbi nibh est diam pretium.
@@ -77,17 +77,17 @@ export default function HomePage() {
         </div>
       </div>
       <div>
-        <div className="flex flex-col xl:flex-row-reverse">
+        <div className="flex flex-col items-center xl:flex-row-reverse">
           <img
             className="mb-6 rounded-3xl bg-slate-200 object-cover xl:h-[847px] xl:w-[636px]"
             src="/flowerBG.svg"
             alt="IMG"
           />
           <div className="flex flex-col xl:mr-20 xl:mt-36">
-            <h3 className="mb-6 text-xl xl:mb-10 xl:text-5xl">
+            <h3 className="mb-6 text-xl sm:text-3xl md:text-4xl xl:mb-10 xl:text-5xl">
               Automated WhatsApp RSVP
             </h3>
-            <p className="mb-12 xl:text-3xl">
+            <p className="mb-12 max-w-screen-lg lg:text-2xl xl:text-3xl">
               Lorem ipsum dolor sit amet consectetur. Non velit euismod nulla
               iaculis turpis augue condimentum. Amet nec at risus laoreet
               ornare. In urna vel mauris iaculis morbi nibh est diam pretium.
@@ -97,17 +97,17 @@ export default function HomePage() {
         </div>
       </div>
       <div>
-        <div className="flex flex-col xl:flex-row">
+        <div className="flex flex-col items-center xl:flex-row">
           <img
             className="mb-6 rounded-3xl bg-slate-200 object-cover xl:h-[847px] xl:w-[636px]"
             src="/flowerBG.svg"
             alt="IMG"
           />
           <div className="flex flex-col xl:ml-20 xl:mt-36">
-            <h3 className="mb-6 text-xl xl:mb-10 xl:text-5xl">
+            <h3 className="mb-6 text-xl sm:text-3xl md:text-4xl xl:mb-10 xl:text-5xl">
               Automated WhatsApp RSVP
             </h3>
-            <p className="mb-12 xl:text-3xl">
+            <p className="mb-12 max-w-screen-lg lg:text-2xl xl:text-3xl">
               Lorem ipsum dolor sit amet consectetur. Non velit euismod nulla
               iaculis turpis augue condimentum. Amet nec at risus laoreet
               ornare. In urna vel mauris iaculis morbi nibh est diam pretium.
@@ -117,17 +117,17 @@ export default function HomePage() {
         </div>
       </div>
       <div>
-        <div className="flex flex-col xl:flex-row-reverse">
+        <div className="flex flex-col items-center xl:flex-row-reverse">
           <img
             className="mb-6 rounded-3xl bg-slate-200 object-cover xl:h-[847px] xl:w-[636px]"
             src="/flowerBG.svg"
             alt="IMG"
           />
           <div className="flex flex-col xl:mr-20 xl:mt-36">
-            <h3 className="mb-6 text-xl xl:mb-10 xl:text-5xl">
+            <h3 className="mb-6 text-xl sm:text-3xl md:text-4xl xl:mb-10 xl:text-5xl">
               Automated WhatsApp RSVP
             </h3>
-            <p className="mb-12 xl:text-3xl">
+            <p className="mb-12 max-w-screen-lg lg:text-2xl xl:text-3xl">
               Lorem ipsum dolor sit amet consectetur. Non velit euismod nulla
               iaculis turpis augue condimentum. Amet nec at risus laoreet
               ornare. In urna vel mauris iaculis morbi nibh est diam pretium.
@@ -138,19 +138,19 @@ export default function HomePage() {
       </div>
       <div>
         <div className="mt-20 xl:mt-40">
-          <h2 className="mb-20 text-2xl xl:text-6xl">
+          <h2 className="mb-20 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl">
             TELL US ABOUT YOUR PLAN
           </h2>
         </div>
       </div>
       <div className="mb-6 flex flex-row items-center justify-center xl:mt-32">
         <div className="mx-2 flex flex-row items-center">
-          <FaRegCopyright className="mr-1 h-2 w-2" />
-          <p className="text-[8px] xl:text-xl">Amarento 2024</p>
+          <FaRegCopyright className="mr-1 h-2 w-2 lg:h-3 lg:w-3" />
+          <p className="text-[8px] lg:text-xs xl:text-xl">Amarento 2024</p>
         </div>
         <div className="mx-2 flex flex-row">
-          <FaInstagram className="mx-1 object-contain xl:h-9 xl:w-9" />
-          <FaWhatsapp className="mx-1 object-contain xl:h-9 xl:w-9" />
+          <FaInstagram className="mx-1 object-contain lg:h-7 lg:w-7 xl:h-9 xl:w-9" />
+          <FaWhatsapp className="mx-1 object-contain lg:h-7 lg:w-7 xl:h-9 xl:w-9" />
         </div>
       </div>
     </main>
