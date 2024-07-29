@@ -1,7 +1,5 @@
+import { FaInstagram, FaRegCopyright, FaWhatsapp } from "react-icons/fa";
 import { VscCircleLargeFilled } from "react-icons/vsc";
-import { FaRegCopyright } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa";
 
 export default function HomePage() {
   return (
@@ -25,7 +23,7 @@ export default function HomePage() {
           <h1 className="mb-6 flex font-lagency text-4xl sm:text-5xl lg:text-6xl xl:mb-10 xl:max-w-4xl xl:text-8xl">
             ENTRUST US WITH YOUR RSVP
           </h1>
-          <p className="mb-8 max-w-screen-lg flex justify-center lg:text-2xl xl:mb-32 xl:max-w-4xl xl:text-2xl">
+          <p className="mb-8 flex max-w-screen-lg justify-center lg:text-2xl xl:mb-32 xl:max-w-4xl xl:text-2xl">
             Lorem ipsum dolor sit amet consectetur. Feugiat dolor arcu pulvinar
             et. Tempor id adipiscing et ac mauris a. Nunc viverra id ac nibh
             neque. Cum quam mi.
