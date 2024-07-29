@@ -65,6 +65,7 @@ const config = {
       },
       fontFamily: {
         lagency: ["var(--font-lagency)", "serif", ...fontFamily.serif],
+        lora: ['Lora', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

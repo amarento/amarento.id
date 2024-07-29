@@ -1,10 +1,12 @@
-import "~/styles/globals.css";
+// app/layout.tsx
 
+import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import localFont from "next/font/local";
 import { Toaster } from "~/components/ui/toaster";
 import Providers from "./providers";
+import Head from "next/head"; // Import Head for adding meta tags
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -12,38 +14,25 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-const budaLight = localFont({
-  src: "./_assets/Buda-Light.ttf",
-  variable: "--font-buda",
-});
-
-const missPhilips = localFont({
-  src: "./_assets/Miss-Phillips.ttf",
-  variable: "--font-phillips",
-});
-
-const nunito = localFont({
-  src: "./_assets/NunitoSans.ttf",
-  variable: "--font-nunito",
-});
-
-const NunitoSansItalic = localFont({
-  src: "./_assets/NunitoSans-Italic.ttf",
-  variable: "--font-nunito-italic",
+const lagency = localFont({
+  src: "./_assets/fonts/Lagency-Regular.woff2",
+  variable: "--font-lagency",
 });
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${GeistSans.variable} ${budaLight.variable} ${missPhilips.variable} ${nunito.variable} ${NunitoSansItalic.variable}`}
-    >
-      <body>
-        <Providers>{children}</Providers>
-        <Toaster />
-      </body>
-    </html>
+    <>
+      <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet" />
+      </Head>
+      <html lang="en" className={`${GeistSans.variable} ${lagency.variable}`}>
+        <body className="font-lora"> {/* Apply Lora font to body */}
+          <Providers>{children}</Providers>
+          <Toaster />
+        </body>
+      </html>
+    </>
   );
 }
