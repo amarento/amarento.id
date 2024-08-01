@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useEffect, useRef, useState, ReactNode } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState, type ReactNode } from "react";
 
 interface FadeInProps {
   children: ReactNode;
-  delay?: number; 
+  delay?: number;
 }
 
 const FadeIn: React.FC<FadeInProps> = ({ children, delay = 0 }) => {
@@ -19,12 +19,12 @@ const FadeIn: React.FC<FadeInProps> = ({ children, delay = 0 }) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
               setIsVisible(true);
-            }, delay); 
-            observer.unobserve(entry.target); 
+            }, delay);
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.2 } 
+      { threshold: 0.2 },
     );
 
     if (ref.current) {
@@ -41,9 +41,9 @@ const FadeIn: React.FC<FadeInProps> = ({ children, delay = 0 }) => {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }} 
-      transition={{ duration: 0.8, delay }} 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+      transition={{ duration: 0.8, delay }}
     >
       {children}
     </motion.div>

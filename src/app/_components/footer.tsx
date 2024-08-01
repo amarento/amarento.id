@@ -1,22 +1,24 @@
-import React from "react";
-import AnimatedLink from "./animated-link";
-import { RiArrowRightUpLine } from "react-icons/ri";
+"use client";
 
-import { FaRegCopyright, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { RiArrowRightUpLine } from "react-icons/ri";
+import AnimatedLink from "./animated-link";
+
+import { FaInstagram, FaRegCopyright, FaWhatsapp } from "react-icons/fa";
 import FadeIn from "./fade-in";
 
 const Footer = () => {
   return (
     <div className="mt-custom-short">
       <FadeIn delay={0.15}>
-      <h2 className="mb-custom-short text-custom-h2 font-lagency">
-        TELL US ABOUT YOUR PLAN
-      </h2></FadeIn>
+        <h2 className="mb-custom-short text-custom-h2 font-lagency">
+          TELL US ABOUT YOUR PLAN
+        </h2>
+      </FadeIn>
       <div className="mb-custom-medium text-custom-p">
-      <FadeIn delay={0.15}>
-        <AnimatedLink href="./contact" icon={<RiArrowRightUpLine />}>
-          SAY HELLO
-        </AnimatedLink>
+        <FadeIn delay={0.15}>
+          <AnimatedLink href="./contact" icon={<RiArrowRightUpLine />}>
+            SAY HELLO
+          </AnimatedLink>
         </FadeIn>
       </div>
       <div className="mb-6 flex flex-row items-center justify-center">

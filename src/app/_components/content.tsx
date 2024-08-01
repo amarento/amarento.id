@@ -1,6 +1,5 @@
-import React from "react";
-import AnimatedLink from "./animated-link";
 import { RiArrowRightUpLine } from "react-icons/ri";
+import AnimatedLink from "./animated-link";
 import FadeIn from "./fade-in";
 
 export default function Content() {

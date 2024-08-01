@@ -1,6 +1,5 @@
-import React from "react";
-import AnimatedLink from "./animated-link";
 import { RiArrowRightUpLine } from "react-icons/ri";
+import AnimatedLink from "./animated-link";
 import FadeIn from "./fade-in";
 
 export default function Hero() {
@@ -20,9 +19,9 @@ export default function Hero() {
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="mb-custom-short text-custom-p flex max-w-screen-xl justify-center">
-              Lorem ipsum dolor sit amet consectetur. Feugiat dolor arcu pulvinar
-              et. Tempor id adipiscing et ac mauris a. Nunc viverra id ac nibh
-              neque. Cum quam mi.
+              Lorem ipsum dolor sit amet consectetur. Feugiat dolor arcu
+              pulvinar et. Tempor id adipiscing et ac mauris a. Nunc viverra id
+              ac nibh neque. Cum quam mi.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>
@@ -35,7 +34,11 @@ export default function Hero() {
         </div>
         <FadeIn delay={0.15}>
           <div className="mb-custom-long flex justify-center xl:mb-48">
-            <img className="flex justify-center" src="/flowerBG.svg" alt="IMG" />
+            <img
+              className="flex justify-center"
+              src="/flowerBG.svg"
+              alt="IMG"
+            />
           </div>
         </FadeIn>
       </div>
