@@ -38,6 +38,21 @@
     @apply text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl
   }
 
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px); 
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); 
+  }
+}
+
+  .fade-in {
+    animation: fadeIn 1.5s ease-in-out forwards;
+  }
+
   @layer base {
     :root {
       --background: 0 0% 100%;
