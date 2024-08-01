@@ -1,12 +1,11 @@
-// app/layout.tsx
-
 import "~/styles/globals.css";
-import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import localFont from "next/font/local";
 import { Toaster } from "~/components/ui/toaster";
 import Providers from "./providers";
-import Head from "next/head"; // Import Head for adding meta tags
+import Head from "next/head";
+import Navbar from "./_components/navbar";
+import Footer from "./_components/footer";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -25,12 +24,17 @@ export default function RootLayout({
   return (
     <>
       <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
-      <html lang="en" className={`${GeistSans.variable} ${lagency.variable}`}>
-        <body className="font-lora"> {/* Apply Lora font to body */}
+      <html lang="en" className={`${lagency.variable}`}>
+        <Navbar />
+        <body className="font-lora bg-white-default text-black-default mx-5 mt-16 flex flex-col justify-center bg-black-default text-center md:mx-10 lg:mx-16 xl:mx-20">
           <Providers>{children}</Providers>
           <Toaster />
+          <Footer />
         </body>
       </html>
     </>
