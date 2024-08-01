@@ -1,4 +1,5 @@
 import axios from "axios";
+import { type UserMessage } from "~/server/contracts";
 
 const createAxios = () => {
   // axios instance for making requests
@@ -17,4 +18,9 @@ export const resetUserState = async () => {
 export const sendInitialMessage = async () => {
   const response = await _axios.post("/api/send-initial-message");
   console.log(response);
+};
+
+export const getRSVPStates = async () => {
+  const response = await _axios.get<UserMessage[]>("/api/user-state");
+  return response.data;
 };

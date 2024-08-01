@@ -4,13 +4,14 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { useToast } from "~/components/ui/use-toast";
-import { resetUserState, sendInitialMessage } from "./_actions";
+import { getRSVPStates, resetUserState, sendInitialMessage } from "./_actions";
 
 export default function Page() {
   const { toast } = useToast();
   const { data } = useQuery({
     queryKey: ["user-state"],
-    queryFn: () => [],
+    queryFn: getRSVPStates,
+    refetchInterval: 1000,
   });
 
   /** action to reset user state */
@@ -51,6 +52,8 @@ export default function Page() {
   return (
     <div className="mx-auto max-w-3xl p-20">
       <h1 className="text-3xl">Dashboard for Ricky and Gloria Wedding Event</h1>
+
+      {data?.map((message, i) => <div key={i}>{JSON.stringify(message)}</div>)}
 
       <div className="mt-4 flex gap-2">
         <Button onClick={() => mutate()} disabled={isPending}>
