@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="m-5 flex items-center justify-between sm:m-8 md:m-10 lg:m-12 xl:m-14">
         <a href="/">
           <img
-            className="h-6 sm:h-8 md:h-10 lg:h-12 xl:h-14"
+            className="h-6 sm:h-8 md:h-10 lg:h-10 xl:h-12"
             src="/logo.svg"
             alt="logo"
           />

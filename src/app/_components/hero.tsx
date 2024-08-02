@@ -1,61 +1,73 @@
-import { RiArrowRightUpLine } from "react-icons/ri";
+import { CgArrowTopRight } from "react-icons/cg";
 import AnimatedLink from "./animated-link";
 import FadeIn from "./fade-in";
+import Image from "next/image";
 
 export default function Hero() {
   return (
     <div>
       <div className="relative">
-        <img
-          className="absolute -z-10 object-cover opacity-5"
-          src="/flowerBG.svg"
-          alt="flowerBackground"
-        />
+        <FadeIn delay={0}>
+          <Image
+            className="absolute -z-10 object-cover opacity-5"
+            src="/flowerBG.svg"
+            alt="flowerBackground"
+            width={500}
+            height={500}
+            layout="responsive"
+            objectFit="cover"
+          />
+        </FadeIn>
         <div className="flex flex-col items-center">
-          <FadeIn delay={0}>
+          <FadeIn delay={0.2}>
             <h1 className="mt-custom-long mb-custom-medium text-custom-h1 flex max-w-screen-xl font-lagency">
               ENTRUST US WITH YOUR RSVP
             </h1>
           </FadeIn>
-          <FadeIn delay={0.15}>
+          <FadeIn delay={0.4}>
             <p className="mb-custom-short text-custom-p flex max-w-screen-xl justify-center">
-              Lorem ipsum dolor sit amet consectetur. Feugiat dolor arcu
-              pulvinar et. Tempor id adipiscing et ac mauris a. Nunc viverra id
-              ac nibh neque. Cum quam mi.
+              Streamline your wedding planning with our WhatsApp RSVP and QR
+              Check-In System, tailored for couples in Indonesia. Effortlessly
+              gather guest responses in real time and ensure a smooth entry for
+              your guests on your special day, reducing the stress of managing
+              atendees.
             </p>
           </FadeIn>
-          <FadeIn delay={0.3}>
+          <FadeIn delay={0.6}>
             <div className="mb-custom-long text-custom-p">
-              <AnimatedLink href="./contact" icon={<RiArrowRightUpLine />}>
+              <AnimatedLink href="./contact" icon={<CgArrowTopRight />}>
                 SAY HELLO
               </AnimatedLink>
             </div>
           </FadeIn>
         </div>
-        <FadeIn delay={0.15}>
+        <FadeIn delay={0.2}>
           <div className="mb-custom-long flex justify-center xl:mb-48">
-            <img
-              className="flex justify-center"
+            <Image
+              className="flex justify-center object-cover"
               src="/flowerBG.svg"
               alt="IMG"
+              width={500}
+              height={500}
+              layout="intrinsic"
             />
           </div>
         </FadeIn>
       </div>
       <div>
         <div className="flex flex-col items-center">
-          <FadeIn delay={0.15}>
+          <FadeIn delay={0.2}>
             <h2 className="mb-custom-short text-custom-h2 max-w-screen-xl font-lagency">
-              LOREM IPSUM DOLOR SIT AMET
+              ELEVATE YOUR WEDDING EXPERIENCE WITH PERSONALIZED FEATURES
             </h2>
           </FadeIn>
-          <FadeIn delay={0.15}>
+          <FadeIn delay={0.2}>
             <div className="flex justify-center">
               <p className="mb-custom-long text-custom-p max-w-screen-xl">
-                Lorem ipsum dolor sit amet consectetur. Egestas sem integer
-                viverra duis arcu tempor. Duis est ornare tellus duis adipiscing
-                morbi. Mi dignissim netus risus mattis maecenas id viverra.
-                Iaculis mollis viverra semper dictumst donec.
+                Planning the ideal wedding doesn’t have to be stressful with our
+                wide range of services. Couples can personalize every
+                detail—from flexible RSVP management to custom wedding
+                websites—ensuring their dream wedding comes to life.
               </p>
             </div>
           </FadeIn>
