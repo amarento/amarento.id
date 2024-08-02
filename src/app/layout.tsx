@@ -30,11 +30,11 @@ export default function RootLayout({
         />
       </Head>
       <html lang="en" className={`${lagency.variable}`}>
-        <Navbar />
+        {/* <Navbar /> */}
         <body className="font-lora bg-white-default text-black-default mx-5 mt-16 flex flex-col justify-center bg-black-default text-center md:mx-10 lg:mx-16 xl:mx-20">
           <Providers>{children}</Providers>
           <Toaster />
-          <Footer />
+          {/* <Footer /> */}
         </body>
       </html>
     </>
