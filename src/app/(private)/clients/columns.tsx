@@ -2,7 +2,7 @@
 
 import { type ColumnDef } from "@tanstack/react-table";
 import { QrCode, Send } from "lucide-react";
-import { Button } from "~/components/ui/button";
+import { buttonVariants } from "~/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
@@ -51,13 +51,11 @@ export const columns: ColumnDef<Client>[] = [
       <div className="flex gap-2">
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger>
-              <Button
-                size={"icon"}
-                onClick={() => console.log("Initial message send.")}
-              >
-                <Send className="h-4 w-4" />
-              </Button>
+            <TooltipTrigger
+              className={buttonVariants({ size: "icon" })}
+              onClick={() => console.log("Initial message send.")}
+            >
+              <Send className="h-4 w-4" />
             </TooltipTrigger>
             <TooltipContent>
               <p>Send initial message</p>
@@ -67,10 +65,11 @@ export const columns: ColumnDef<Client>[] = [
 
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger>
-              <Button size={"icon"} onClick={() => console.log("Send QR.")}>
-                <QrCode className="h-4 w-4" />
-              </Button>
+            <TooltipTrigger
+              className={buttonVariants({ size: "icon" })}
+              onClick={() => console.log("Send QR.")}
+            >
+              <QrCode className="h-4 w-4" />
             </TooltipTrigger>
             <TooltipContent>
               <p>Send QR</p>

@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { CgArrowTopRight } from "react-icons/cg";
 import AnimatedLink from "./animated-link";
 import FadeIn from "./fade-in";
-import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -9,13 +9,12 @@ export default function Hero() {
       <div className="relative">
         <FadeIn delay={0}>
           <Image
-            className="absolute -z-10 object-cover opacity-5"
+            className="absolute -z-10 h-auto w-auto object-cover opacity-5"
             src="/flowerBG.svg"
             alt="flowerBackground"
             width={500}
             height={500}
-            layout="responsive"
-            objectFit="cover"
+            priority
           />
         </FadeIn>
         <div className="flex flex-col items-center">
@@ -44,12 +43,12 @@ export default function Hero() {
         <FadeIn delay={0.2}>
           <div className="mb-custom-long flex justify-center xl:mb-48">
             <Image
-              className="flex justify-center object-cover"
+              className="flex h-auto w-auto justify-center object-cover"
               src="/flowerBG.svg"
               alt="IMG"
               width={500}
               height={500}
-              layout="intrinsic"
+              priority
             />
           </div>
         </FadeIn>

@@ -12,12 +12,12 @@ export default function Content() {
         <FadeIn delay={0.15}>
           <div className="flex flex-col items-center lg:flex-row">
             <Image
-              className="mb-custom-medium rounded-3xl bg-slate-200 lg:h-[70vh] lg:w-1/2"
+              className="mb-custom-medium h-auto w-auto rounded-3xl bg-slate-200 object-cover"
               src="/whatsapp.jpg"
               alt="IMG"
-              layout="intrinsic"
               width={500}
               height={500}
+              priority={true}
             />
             <div className="flex flex-col lg:ml-20 lg:mt-36">
               <h3 className="mb-custom-short text-custom-h3 font-lagency">
@@ -43,10 +43,9 @@ export default function Content() {
         <FadeIn delay={0.15}>
           <div className="flex flex-col items-center lg:flex-row-reverse">
             <Image
-              className="mb-custom-medium rounded-3xl bg-slate-200 lg:h-[70vh] lg:w-1/2"
+              className="mb-custom-medium h-auto w-auto rounded-3xl bg-slate-200 object-cover"
               src="/qr-code.png"
               alt="IMG"
-              layout="intrinsic"
               width={500}
               height={500}
             />
@@ -76,10 +75,9 @@ export default function Content() {
         <FadeIn delay={0.15}>
           <div className="flex flex-col items-center lg:flex-row">
             <Image
-              className="mb-custom-medium rounded-3xl bg-slate-200 lg:h-[70vh] lg:w-1/2"
+              className="mb-custom-medium h-auto w-auto rounded-3xl bg-slate-200 object-cover"
               src="/wedding-web.jpg"
               alt="IMG"
-              layout="intrinsic"
               width={500}
               height={500}
             />
@@ -110,10 +108,9 @@ export default function Content() {
         <FadeIn delay={0.15}>
           <div className="flex flex-col items-center lg:flex-row-reverse">
             <Image
-              className="mb-custom-medium rounded-3xl bg-slate-200 lg:h-[70vh] lg:w-1/2"
+              className="mb-custom-medium h-auto w-auto rounded-3xl bg-slate-200 object-cover"
               src="/e-invitation.jpg"
               alt="IMG"
-              layout="intrinsic"
               width={500}
               height={500}
             />
