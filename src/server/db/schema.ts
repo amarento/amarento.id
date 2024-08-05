@@ -1,5 +1,6 @@
 import { relations, sql } from "drizzle-orm";
 import {
+  boolean,
   index,
   integer,
   pgTableCreator,
@@ -19,26 +20,67 @@ import { type AdapterAccount } from "next-auth/adapters";
  */
 export const createTable = pgTableCreator((name) => `amarento.id_${name}`);
 
-export const posts = createTable(
-  "post",
+export const guests = createTable(
+  "guests",
   {
     id: serial("id").primaryKey(),
-    name: varchar("name", { length: 256 }),
-    createdById: varchar("created_by", { length: 255 })
-      .notNull()
-      .references(() => users.id),
+    invNames: varchar("inv_names", { length: 256 }).notNull(),
+    guestNames: varchar("guest_names", { length: 256 }),
+    waNumber: varchar("wa_number", { length: 256 }).notNull(),
+    nRSVPPlan: integer("n_rsvp_plan").notNull(),
+    rsvpDinner: boolean("rsvp_dinner").default(false),
+    rsvpHolmat: boolean("rsvp_holmat").default(false),
+    nRSVPHolmatAct: integer("n_rsvp_holmat_act"),
+    nRSVPDinnerAct: integer("n_rsvp_dinner_act"),
+    nRSVPHolmatWA: integer("n_rsvp_holmat_wa"),
+    nRSVPDinnerWA: integer("n_rsvp_dinner_wa"),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
-      () => new Date()
+      () => new Date(),
     ),
+    clientId: integer("client_id")
+      .references(() => clients.id)
+      .notNull(),
   },
-  (example) => ({
-    createdByIdIdx: index("created_by_idx").on(example.createdById),
-    nameIndex: index("name_idx").on(example.name),
-  })
+  (guest) => ({
+    nameIndex: index("name_idx").on(guest.invNames),
+  }),
 );
+
+export const guestsRelations = relations(guests, ({ one }) => ({
+  client: one(clients, {
+    fields: [guests.clientId],
+    references: [clients.id],
+  }),
+}));
+
+export type NewGuest = typeof guests.$inferInsert;
+export type Guest = typeof guests.$inferSelect;
+
+export const clients = createTable("clients", {
+  id: serial("id").primaryKey(),
+  nameGroom: varchar("name", { length: 256 }),
+  nameBride: varchar("name", { length: 256 }),
+  parentsNameGroom: varchar("parents_name_groom", { length: 256 }),
+  parentsNameBride: varchar("parents_name_bride", { length: 256 }),
+  weddingDay: timestamp("wedding_day", { mode: "date", withTimezone: true }),
+  holmatLocation: varchar("holmat_location", { length: 256 }),
+  holmatTime: timestamp("holmat_time", { mode: "date", withTimezone: true }),
+  dinnerLocation: varchar("dinner_location", { length: 256 }),
+  dinnerTime: timestamp("dinner_time", { mode: "date", withTimezone: true }),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
+    () => new Date(),
+  ),
+});
+
+export const clientRelations = relations(clients, ({ many }) => ({
+  guests: many(guests),
+}));
 
 export const users = createTable("user", {
   id: varchar("id", { length: 255 })
@@ -84,7 +126,7 @@ export const accounts = createTable(
       columns: [account.provider, account.providerAccountId],
     }),
     userIdIdx: index("account_user_id_idx").on(account.userId),
-  })
+  }),
 );
 
 export const accountsRelations = relations(accounts, ({ one }) => ({
@@ -107,7 +149,7 @@ export const sessions = createTable(
   },
   (session) => ({
     userIdIdx: index("session_user_id_idx").on(session.userId),
-  })
+  }),
 );
 
 export const sessionsRelations = relations(sessions, ({ one }) => ({
@@ -126,5 +168,5 @@ export const verificationTokens = createTable(
   },
   (vt) => ({
     compoundKey: primaryKey({ columns: [vt.identifier, vt.token] }),
-  })
+  }),
 );
