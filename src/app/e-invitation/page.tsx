@@ -1,7 +1,7 @@
-export default function EInvitation(){
-    return (
-        <div>
-            
-        </div>
-    );
+export default function EInvitation() {
+  return (
+    <div>
+      <p>E-Invitation</p>
+    </div>
+  );
 }

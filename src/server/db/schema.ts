@@ -20,6 +20,32 @@ import { type AdapterAccount } from "next-auth/adapters";
  */
 export const createTable = pgTableCreator((name) => `amarento.id_${name}`);
 
+export const clients = createTable("clients", {
+  id: serial("id").primaryKey(),
+  nameGroom: varchar("name_groom", { length: 256 }),
+  nameBride: varchar("name_bride", { length: 256 }),
+  parentsNameGroom: varchar("parents_name_groom", { length: 256 }),
+  parentsNameBride: varchar("parents_name_bride", { length: 256 }),
+  weddingDay: timestamp("wedding_day", { mode: "date", withTimezone: true }),
+  holmatLocation: varchar("holmat_location", { length: 256 }),
+  holmatTime: timestamp("holmat_time", { mode: "date", withTimezone: true }),
+  dinnerLocation: varchar("dinner_location", { length: 256 }),
+  dinnerTime: timestamp("dinner_time", { mode: "date", withTimezone: true }),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
+    () => new Date(),
+  ),
+});
+
+export const clientRelations = relations(clients, ({ many }) => ({
+  guests: many(guests),
+}));
+
+export type NewClient = typeof clients.$inferInsert;
+export type Client = typeof clients.$inferSelect;
+
 export const guests = createTable(
   "guests",
   {
@@ -58,29 +84,6 @@ export const guestsRelations = relations(guests, ({ one }) => ({
 
 export type NewGuest = typeof guests.$inferInsert;
 export type Guest = typeof guests.$inferSelect;
-
-export const clients = createTable("clients", {
-  id: serial("id").primaryKey(),
-  nameGroom: varchar("name", { length: 256 }),
-  nameBride: varchar("name", { length: 256 }),
-  parentsNameGroom: varchar("parents_name_groom", { length: 256 }),
-  parentsNameBride: varchar("parents_name_bride", { length: 256 }),
-  weddingDay: timestamp("wedding_day", { mode: "date", withTimezone: true }),
-  holmatLocation: varchar("holmat_location", { length: 256 }),
-  holmatTime: timestamp("holmat_time", { mode: "date", withTimezone: true }),
-  dinnerLocation: varchar("dinner_location", { length: 256 }),
-  dinnerTime: timestamp("dinner_time", { mode: "date", withTimezone: true }),
-  createdAt: timestamp("created_at", { withTimezone: true })
-    .default(sql`CURRENT_TIMESTAMP`)
-    .notNull(),
-  updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
-    () => new Date(),
-  ),
-});
-
-export const clientRelations = relations(clients, ({ many }) => ({
-  guests: many(guests),
-}));
 
 export const users = createTable("user", {
   id: varchar("id", { length: 255 })

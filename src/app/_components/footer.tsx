@@ -6,7 +6,7 @@ import AnimatedLink from "./animated-link";
 import { FaInstagram, FaRegCopyright, FaWhatsapp } from "react-icons/fa";
 import FadeIn from "./fade-in";
 
-const Footer = () => {
+export default function Footer() {
   return (
     <div className="mt-custom-short">
       <FadeIn delay={0.15}>
@@ -35,6 +35,4 @@ const Footer = () => {
       </div>
     </div>
   );
-};
-
-export default Footer;
+}

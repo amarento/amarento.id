@@ -1,18 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, { useEffect, useRef, useState, type ReactNode } from "react";
+import React from "react";
 
 interface FadeInProps {
-  children: ReactNode;
-  delay?: number;
+  readonly children: React.ReactNode;
+  readonly delay?: number;
 }
 
-const FadeIn: React.FC<FadeInProps> = ({ children, delay = 0 }) => {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const ref = useRef<HTMLDivElement | null>(null);
+export default function FadeIn({ children, delay = 0 }: FadeInProps) {
+  const [isVisible, setIsVisible] = React.useState<boolean>(false);
+  const ref = React.useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -48,6 +48,4 @@ const FadeIn: React.FC<FadeInProps> = ({ children, delay = 0 }) => {
       {children}
     </motion.div>
   );
-};
-
-export default FadeIn;
+}

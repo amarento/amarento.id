@@ -1,13 +1,11 @@
-"use client"
-
-import Hero from "./_components/hero";
-import HomeContent from "./_components/content";
+"use client";
 
 export default function HomePage() {
   return (
     <div>
-      <Hero />
-      <HomeContent />
+      <h1>homepage</h1>
+      {/* <Hero />
+      <HomeContent /> */}
     </div>
   );
 }

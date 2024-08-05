@@ -1,7 +1,9 @@
+"use client";
+
+import Image from "next/image";
 import { CgArrowTopRight } from "react-icons/cg";
 import AnimatedLink from "./animated-link";
 import FadeIn from "./fade-in";
-import Image from "next/image";
 
 export default function Content() {
   return (

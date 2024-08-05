@@ -1,7 +1,3 @@
-export default function Contact(){
-    return (
-        <div>
-            
-        </div>
-    );
+export default function Contact() {
+  return <div>Contact</div>;
 }

@@ -1,11 +1,9 @@
-import "~/styles/globals.css";
 import { type Metadata } from "next";
+import { Lora } from "next/font/google";
 import localFont from "next/font/local";
 import { Toaster } from "~/components/ui/toaster";
+import "~/styles/globals.css";
 import Providers from "./providers";
-import Head from "next/head";
-import Navbar from "./_components/navbar";
-import Footer from "./_components/footer";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -18,25 +16,24 @@ const lagency = localFont({
   variable: "--font-lagency",
 });
 
+const lora = Lora({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-lora",
+  weight: ["400", "700"],
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      <html lang="en" className={`${lagency.variable}`}>
+    <html lang="en" className={`${lagency.variable} ${lora.variable}`}>
+      <body className="mx-5 mt-16 flex flex-col justify-center bg-black-default bg-white-default text-center font-lora text-black-default sm:py-20 md:mx-10 lg:mx-16 xl:mx-20">
         {/* <Navbar /> */}
-        <body className="font-lora bg-white-default text-black-default mx-5 mt-16 flex flex-col justify-center bg-black-default text-center md:mx-10 lg:mx-16 xl:mx-20">
-          <Providers>{children}</Providers>
-          <Toaster />
-          {/* <Footer /> */}
-        </body>
-      </html>
-    </>
+        <Providers>{children}</Providers>
+        <Toaster />
+        {/* <Footer /> */}
+      </body>
+    </html>
   );
 }
