@@ -3,4 +3,9 @@
 - [x] Create guests rsvp schema
 - [x] Create clients rsvp schema
 - [x] Refactor components and fix errors
-- [x] Create client management table
+- [ ] Clients dashboard
+  - [x] Create client management table
+  - [x] Add button to read client from excel
+  - [x] Add client directly from excel
+  - [x] Add button to delete client
+  - [ ] Add button to redirect to clients page
