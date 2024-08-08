@@ -22,6 +22,7 @@ export const createTable = pgTableCreator((name) => `amarento.id_${name}`);
 
 export const clients = createTable("clients", {
   id: serial("id").primaryKey(),
+  code: varchar("client_code", { length: 256 }).unique().notNull(),
   nameGroom: varchar("name_groom", { length: 256 }),
   nameBride: varchar("name_bride", { length: 256 }),
   parentsNameGroom: varchar("parents_name_groom", { length: 256 }),

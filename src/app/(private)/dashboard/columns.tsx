@@ -2,6 +2,7 @@
 
 import { type ColumnDef } from "@tanstack/react-table";
 import { AppWindowMac, Pen, QrCode, Send } from "lucide-react";
+import Link from "next/link";
 import { buttonVariants } from "~/components/ui/button";
 import { Checkbox } from "~/components/ui/checkbox";
 import {
@@ -75,11 +76,10 @@ export const columns: ColumnDef<Client>[] = [
       <div className="flex gap-1">
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger
-              className={buttonVariants({ size: "icon" })}
-              onClick={() => console.log("Initial message send.")}
-            >
-              <AppWindowMac className="h-4 w-4" />
+            <TooltipTrigger className={buttonVariants({ size: "icon" })}>
+              <Link href={`/dashboard/clients/${row.original.code}`}>
+                <AppWindowMac className="h-4 w-4" />
+              </Link>
             </TooltipTrigger>
             <TooltipContent className="font-mono">
               <p>Client dashboard</p>

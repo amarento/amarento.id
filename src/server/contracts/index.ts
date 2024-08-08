@@ -14,6 +14,7 @@ export type UserMessage = {
 };
 
 export const newClientSchema = z.object({
+  code: z.string(),
   nameGroom: z.string(),
   nameBride: z.string(),
   parentsNameGroom: z.string(),

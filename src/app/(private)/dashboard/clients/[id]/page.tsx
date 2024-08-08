@@ -1,9 +1,14 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+import { useParams } from "next/navigation";
 import { getRSVPStates } from "./_actions";
 
 export default function Page() {
+  const params = useParams<{ id: string }>();
+  const name = params.id;
+
+  /** user rsvp live tracker */
   const { data } = useQuery({
     queryKey: ["user-state"],
     queryFn: getRSVPStates,
@@ -27,11 +32,9 @@ export default function Page() {
   //   },
   // });
 
-  /** action to send initial message */
-
   return (
-    <div className="mx-auto flex max-w-screen-xl flex-col justify-center gap-8 pb-20 font-lagency">
-      <h1 className="text-3xl">Dashboard for Ricky and Gloria Wedding Event</h1>
+    <div className="mx-auto max-w-screen-2xl p-20 font-lagency">
+      <h1 className="text-3xl">Dashboard for {name} Wedding Event</h1>
       {data?.map((message, i) => <div key={i}>{JSON.stringify(message)}</div>)}
     </div>
   );

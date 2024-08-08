@@ -16,7 +16,12 @@ import {
 } from "~/components/ui/dialog";
 import { Input } from "~/components/ui/input";
 import { useToast } from "~/components/ui/use-toast";
-import { cn, constructDateTime } from "~/lib/utils";
+import {
+  cn,
+  constructDateTime,
+  constuctClientCode,
+  getInitials,
+} from "~/lib/utils";
 import { type newClientSchema } from "~/server/contracts";
 import { addClient } from "../_actions";
 
@@ -79,13 +84,14 @@ export default function AddClientDialog() {
           return;
         }
 
+        /** map data to typescript object */
         const data: [string, string][] = xlsx.utils.sheet_to_json(worksheet, {
           header: 1,
           range: "B4:C13",
         });
-
         const object = Object.fromEntries(data) as unknown as ExcelData;
 
+        /** read holmat time */
         const holmat = constructDateTime(
           object["Tanggal Acara:"],
           object["Jam Holmat:"],
@@ -98,6 +104,7 @@ export default function AddClientDialog() {
           return;
         }
 
+        /** read dinner time */
         const dinner = constructDateTime(
           object["Tanggal Acara:"],
           object["Jam Resepsi:"],
@@ -109,7 +116,16 @@ export default function AddClientDialog() {
           });
           return;
         }
+
+        /** construct client unique code */
+        const initial = getInitials(
+          object["Nama Groom:"],
+          object["Nama Bride:"],
+        );
+        const code = constuctClientCode(initial);
+
         const client: z.infer<typeof newClientSchema> = {
+          code: code,
           nameGroom: object["Nama Groom:"],
           nameBride: object["Nama Bride:"],
           parentsNameGroom: object["Nama Orang Tua Groom:"],
