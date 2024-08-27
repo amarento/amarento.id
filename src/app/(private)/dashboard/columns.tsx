@@ -1,7 +1,7 @@
 "use client";
 
 import { type ColumnDef } from "@tanstack/react-table";
-import { AppWindowMac, Pen, QrCode, Send } from "lucide-react";
+import { AppWindowMac, Pen, Send } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "~/components/ui/button";
 import { Checkbox } from "~/components/ui/checkbox";
@@ -13,6 +13,8 @@ import {
 } from "~/components/ui/tooltip";
 import { type Client } from "~/server/db/schema";
 import DeleteClientButton from "./_components/delete-client-button";
+import SendReminderButton from "./_components/send-reminder-button";
+import AddGuestDialog from "./clients/[id]/_components/add-guest-dialog";
 
 export const columns: ColumnDef<Client>[] = [
   {
@@ -73,7 +75,25 @@ export const columns: ColumnDef<Client>[] = [
   {
     header: "Actions",
     cell: ({ row }) => (
-      <div className="flex gap-1">
+      <div className="flex max-w-44 flex-wrap gap-1">
+        <AddGuestDialog clientId={row.original.id} />
+
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger
+              className={buttonVariants({ size: "icon" })}
+              onClick={() => console.log("edit client")}
+            >
+              <Pen className="h-4 w-4" />
+            </TooltipTrigger>
+            <TooltipContent className="font-mono">
+              <p>Edit client</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+
+        <DeleteClientButton clientId={row.original.id} />
+
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger className={buttonVariants({ size: "icon" })}>
@@ -101,35 +121,7 @@ export const columns: ColumnDef<Client>[] = [
           </Tooltip>
         </TooltipProvider>
 
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger
-              className={buttonVariants({ size: "icon" })}
-              onClick={() => console.log("Send QR.")}
-            >
-              <QrCode className="h-4 w-4" />
-            </TooltipTrigger>
-            <TooltipContent className="font-mono">
-              <p>Send QR</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger
-              className={buttonVariants({ size: "icon" })}
-              onClick={() => console.log("Send QR.")}
-            >
-              <Pen className="h-4 w-4" />
-            </TooltipTrigger>
-            <TooltipContent className="font-mono">
-              <p>Edit client</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-
-        <DeleteClientButton clientId={row.original.id} />
+        <SendReminderButton code={row.original.code} />
       </div>
     ),
   },

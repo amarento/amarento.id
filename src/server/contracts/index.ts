@@ -29,3 +29,14 @@ export const newClientSchema = z.object({
 export const deleteClientSchema = z.object({
   clientId: z.number(),
 });
+
+export const addGuestSchema = z.object({
+  invNames: z.string(),
+  waNumber: z.string(),
+  nRSVPPlan: z.number(),
+  clientId: z.number(),
+});
+
+export const sendReminderMessageWithQRSchema = z.object({
+  code: z.string(),
+});
