@@ -1,6 +1,5 @@
 "use server";
 
-import axios from "axios";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { createServerAction } from "zsa";
@@ -11,26 +10,6 @@ import { clients } from "~/server/db/schema";
 export async function getClients() {
   return await db.select().from(clients);
 }
-
-const createAxios = () => {
-  // axios instance for making requests
-  const instance = axios.create({
-    baseURL: "http://localhost:3000",
-  });
-  return instance;
-};
-
-export const _axios = createAxios();
-
-export const resetUserState = async () => {
-  const response = await _axios.post("/api/reset-user-state");
-  console.log(response);
-};
-
-export const sendInitialMessage = async () => {
-  const response = await _axios.post("/api/send-initial-message");
-  console.log(response);
-};
 
 export const addClient = createServerAction()
   .input(newClientSchema)
@@ -45,3 +24,12 @@ export const deleteClient = createServerAction()
     await db.delete(clients).where(eq(clients.id, input.clientId));
     revalidatePath("/dashboard");
   });
+
+// export const sendReminderMessageWithQR = createServerAction()
+//   .input(sendReminderMessageWithQRSchema)
+//   .handler(async ({ input }) => {
+//     console.log(input);
+//     const response = await _axios.post("/api/send-reminder-with-qr");
+//     console.log(response);
+//     return response;
+//   });
