@@ -51,24 +51,32 @@ export const guests = createTable(
   "guests",
   {
     id: serial("id").primaryKey(),
+    clientId: integer("client_id")
+      .references(() => clients.id)
+      .notNull(),
     invNames: varchar("inv_names", { length: 256 }).notNull(),
     guestNames: varchar("guest_names", { length: 256 }),
     waNumber: varchar("wa_number", { length: 256 }).notNull(),
     nRSVPPlan: integer("n_rsvp_plan").notNull(),
-    rsvpDinner: boolean("rsvp_dinner").default(false),
+    side: varchar("side", { length: 256 }),
+
     rsvpHolmat: boolean("rsvp_holmat").default(false),
+    nRSVPHolmatWA: integer("n_rsvp_holmat_wa"),
+    rsvpDinner: boolean("rsvp_dinner").default(false),
+    nRSVPDinnerWA: integer("n_rsvp_dinner_wa"),
+
     nRSVPHolmatAct: integer("n_rsvp_holmat_act"),
     nRSVPDinnerAct: integer("n_rsvp_dinner_act"),
-    nRSVPHolmatWA: integer("n_rsvp_holmat_wa"),
-    nRSVPDinnerWA: integer("n_rsvp_dinner_wa"),
+    tableName: varchar("table_name", { length: 256 }),
+    _angpaoGiven: boolean("_angpaoGiven").default(false),
+    _souvenirTaken: boolean("_souvenirTaken").default(false),
+    _angpaoTitipan: boolean("_angpaoTitipan").default(false),
+
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
     updatedAt: timestamp("updated_at", { withTimezone: true })
       .$onUpdate(() => new Date())
-      .notNull(),
-    clientId: integer("client_id")
-      .references(() => clients.id)
       .notNull(),
   },
   (guest) => ({
