@@ -53,14 +53,23 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        "white": {
+        "white-primary": {
+          default: "#FFFEF2"
+        },
+        "white-secondary": {
+          default: "#F6F5E8"
+        },
+        "white-tertiary": {
           default: "#F8F3ED"
         },
         "grey": {
           default: "#E5DCD3"
         },
-        "black": {
-          default: "30302E"
+        "dark-grey": {
+          default: "#333333"
+        },
+        "dark-green": {
+          default: "#154734"
         }
       },
       fontFamily: {

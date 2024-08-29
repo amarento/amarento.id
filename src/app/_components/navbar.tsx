@@ -6,8 +6,8 @@ import { VscCircleLargeFilled } from "react-icons/vsc";
 
 export default function Navbar() {
   return (
-    <div className="fixed left-0 top-0 z-10 w-full bg-white-default/30 backdrop-blur-sm">
-      <div className="mx-auto flex h-20 items-center justify-between px-8 sm:h-32 sm:max-w-screen-xl sm:px-14">
+    <div className="fixed left-0 top-0 z-50 w-full">
+      <div className="mx-auto flex h-20 items-center justify-between px-8 sm:h-32 sm:max-w-screen-xl sm:px-14 md:px-10">
         <Link href={"/"}>
           <Image
             className="h-8 w-fit sm:h-10 md:h-12 lg:h-12 xl:h-14"
