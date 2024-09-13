@@ -22,20 +22,36 @@
   @apply mt-8 sm:mt-16 md:mt-24 lg:mt-32 xl:mt-40 2xl:mt-48;
 }
 
+.side-margin {
+  @apply mx-[10%];
+}
+
+.max-w-custom {
+  @apply max-w-xs md:max-w-md xl:max-w-xl;
+}
+
 .text-custom-h1 {
-  @apply text-5xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl;
+  @apply text-[58px] md:text-[67px] xl:text-[75px] 2xl:text-[83px];
 }
 
 .text-custom-h2 {
-  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl;
+  @apply text-[44px] md:text-[50px] xl:text-[56px] 2xl:text-[63px];
 }
 
 .text-custom-h3 {
-  @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl;
+  @apply text-[33px] leading-snug md:text-[38px] xl:text-[42px] 2xl:text-[47px];
+}
+
+.text-custom-h4 {
+  @apply text-[25px] md:text-[28px] xl:text-[35px] 2xl:text-[35px];
+}
+
+.text-custom-h5 {
+  @apply text-[19px] md:text-[21px] xl:text-[27px] 2xl:text-[27px];
 }
 
 .text-custom-p {
-  @apply text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl;
+  @apply text-sm leading-relaxed md:text-base xl:text-lg 2xl:text-xl;
 }
 
 @keyframes fadeIn {
