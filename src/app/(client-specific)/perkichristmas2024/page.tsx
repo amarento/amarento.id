@@ -80,7 +80,7 @@ export default function Page() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#555333] font-mono text-white-default">
-      <div className="mx-auto w-10/12 py-12">
+      <div className="mx-auto w-10/12 py-12 md:w-1/3">
         {agree ? (
           <div>
             <div className="mb-4">
