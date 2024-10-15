@@ -58,19 +58,19 @@ export const columns: ColumnDef<Client>[] = [
   {
     accessorKey: "weddingDay",
     header: "Wedding Day",
-    cell: ({ row }) => row.original.weddingDay?.toLocaleDateString(),
+    cell: ({ row }) => row.original.weddingDay?.toUTCString(),
   },
   { accessorKey: "holmatLocation", header: "Holy Matrimony Location" },
   {
     accessorKey: "holmatTime",
     header: "Holy Matrimony Time",
-    cell: ({ row }) => row.original.holmatTime?.toLocaleTimeString(),
+    cell: ({ row }) => row.original.holmatTime?.toUTCString(),
   },
   { accessorKey: "dinnerLocation", header: "Dinner Location" },
   {
     accessorKey: "dinnerTime",
     header: "Dinner Time",
-    cell: ({ row }) => row.original.dinnerTime?.toLocaleTimeString(),
+    cell: ({ row }) => row.original.dinnerTime?.toUTCString(),
   },
   {
     header: "Actions",
