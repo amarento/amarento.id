@@ -180,7 +180,7 @@ export default function Page() {
                 2. Karena keterbatasan kapasitas gedung dan untuk membantu
                 teman-teman pengurus konsumsi, maka pendaftaran akan ditutup 2
                 minggu sebelum ibadah{" "}
-                <span className="font-bold">(07.12.2023)</span> atau ketika
+                <span className="font-bold">(07.12.2024)</span> atau ketika
                 pendaftar sudah mencapai 70 orang. Oleh karena itu, kami mohon
                 Saudara/i dapat mendaftarkan diri secepat mungkin dan tidak
                 mendaftar dekat dengan deadline yang ada.
