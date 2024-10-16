@@ -45,7 +45,7 @@ export const addGuestByClient = createServerAction()
     if (guest !== undefined)
       throw new ZSAError(
         "CONFLICT",
-        "Hang tight! You are already registered to our event. 💚",
+        "Uh oh! You are already registered to our event. 💚",
       );
 
     await db.insert(guests).values(input);

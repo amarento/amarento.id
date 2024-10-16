@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -48,7 +48,7 @@ export default function Page() {
 
   /** state for add client action */
   const router = useRouter();
-  const { execute } = useServerAction(addGuestByClient, {
+  const { isPending, execute } = useServerAction(addGuestByClient, {
     onSuccess: () => {
       toast({
         title: "✅ Registration successful.",
@@ -157,7 +157,15 @@ export default function Page() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit">Submit</Button>
+
+                {isPending ? (
+                  <Button className="flex items-center gap-2">
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <p className="text-sm">Registering ...</p>
+                  </Button>
+                ) : (
+                  <Button type="submit">Submit</Button>
+                )}
               </form>
             </Form>
           </div>
