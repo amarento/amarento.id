@@ -5,10 +5,10 @@ import { ArrowLeft, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
+import Snowfall from "react-snowfall";
 import { z } from "zod";
 import { useServerAction } from "zsa-react";
 import { addGuestByClient } from "~/app/(private)/dashboard/clients/[id]/_actions";
-
 import { Button } from "~/components/ui/button";
 import {
   Form,
@@ -79,7 +79,8 @@ export default function Page() {
   const [agree, setAgree] = React.useState<boolean>(false);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-[#555333] to-[#29281a] font-mono text-white-default">
+    <div className="relative flex min-h-screen items-center justify-center bg-gradient-to-b from-[#555333] to-[#29281a] font-mono text-white-default">
+      <Snowfall radius={[0, 2.5]} speed={[1.0, 2.0]} snowflakeCount={100} />
       <div className="mx-auto w-10/12 py-12 md:w-1/3">
         {agree ? (
           <div>
