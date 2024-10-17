@@ -75,8 +75,6 @@ export default function Page() {
       address: values.address,
     };
 
-    console.log("adding ", guest);
-
     /** action to add guest and guest information. */
     await execute(guest);
   }
