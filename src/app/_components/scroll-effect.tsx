@@ -13,7 +13,7 @@ export const scrollEffect = (containerRef: RefObject<HTMLDivElement>) => {
         behavior: "smooth",
       });
       setCurrentIndex(index);
-      console.log(`Scrolling to index: ${index}`); // Log the new index
+      console.log(`Scrolling to index: ${index}`); 
     }
   };
 
@@ -27,19 +27,26 @@ export const scrollEffect = (containerRef: RefObject<HTMLDivElement>) => {
       if (event.deltaY > 0) {
         // Scrolling down
         if (currentIndex === maxIndex) {
-          // Loop to index 1 if at the end
-          newIndex = 0;
+          // Move to WhatsappRSVP from Contact (loop to the bottom)
+          newIndex = 0;  // Scroll to the start (WhatsappRSVP)
         } else {
           // Move to the next section
           newIndex = Math.min(currentIndex + 1, maxIndex);
         }
       } else {
-        newIndex = Math.max(currentIndex - 1, 0);
+        // Scrolling up
+        if (currentIndex === 0) {
+          // Prevent scrolling up from WhatsappRSVP to Contact
+          newIndex = 0;  // Stay on WhatsappRSVP (don't go back to Contact)
+        } else {
+          // Move to the previous section
+          newIndex = Math.max(currentIndex - 1, 0);
+        }
       }
 
       console.log(
         `Event DeltaY: ${event.deltaY}, Current Index: ${currentIndex}, New Index: ${newIndex}`,
-      ); // Log scroll details
+      ); 
 
       if (newIndex !== currentIndex) {
         scrollToIndex(newIndex);
@@ -55,11 +62,6 @@ export const scrollEffect = (containerRef: RefObject<HTMLDivElement>) => {
         container.removeEventListener("wheel", handleScroll);
       };
     }
-  }, [currentIndex]);
-
-  // Log currentIndex whenever it changes
-  useEffect(() => {
-    console.log(`Current Index: ${currentIndex}`);
   }, [currentIndex]);
 
   return { currentIndex, scrollToIndex };

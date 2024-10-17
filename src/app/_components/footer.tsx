@@ -1,25 +1,21 @@
 "use client";
 
-import { CgArrowTopRight } from "react-icons/cg";
-import AnimatedLink from "./animated-link";
-
 import { FaInstagram, FaRegCopyright, FaWhatsapp } from "react-icons/fa";
-import FadeIn from "./fade-in";
+import Link from "next/link";
+import { Reveal } from "./reveal";
 
 export default function Footer() {
   return (
     <div className="mt-custom-short">
-      <FadeIn delay={0.15}>
+      <Reveal>
         <h2 className="mb-custom-short text-custom-h2 font-lagency">
           TELL US ABOUT YOUR PLAN
         </h2>
-      </FadeIn>
+      </Reveal>
       <div className="mb-custom-medium text-custom-p">
-        <FadeIn delay={0.15}>
-          <AnimatedLink href="./contact" icon={<CgArrowTopRight />}>
-            SAY HELLO
-          </AnimatedLink>
-        </FadeIn>
+        <Reveal>
+          <Link href="./contact">SAY HELLO</Link>
+        </Reveal>
       </div>
       <div className="mb-6 flex flex-row items-center justify-center">
         <div className="mx-2 flex flex-row items-center">

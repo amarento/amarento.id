@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .mb-custom-short {
-  @apply mb-4 sm:mb-6 md:mb-8 lg:mb-12 xl:mb-16 2xl:mb-20;
+  @apply mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12;
 }
 
 .mb-custom-medium {
@@ -50,6 +50,10 @@
   @apply text-[19px] md:text-[21px] xl:text-[27px] 2xl:text-[27px];
 }
 
+.text-custom-h6 {
+  @apply text-base leading-relaxed md:text-lg xl:text-xl 2xl:text-2xl;
+}
+
 .text-custom-p {
   @apply text-sm leading-relaxed md:text-base xl:text-lg 2xl:text-xl;
 }
@@ -69,7 +73,10 @@
   animation: fadeIn 1.5s ease-in-out forwards;
 }
 
-html {
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -104,6 +111,14 @@ html {
     --ring: 0 0% 3.9%;
 
     --radius: 0.5rem;
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-crimson), serif;
+    }
+  
+    p {
+      font-family: var(--font-helvetica), sans-serif;
+    }
   }
 
   .dark {
@@ -145,5 +160,3 @@ html {
     @apply bg-background text-foreground;
   }
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap");

@@ -4,7 +4,7 @@ import mockup from "../../../../public/mockup.png";
 import whatsapp from "../../../../public/whatsapp.jpg";
 import { useState } from "react";
 
-export default function EInvitation() {
+export default function QRCode() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -12,13 +12,13 @@ export default function EInvitation() {
       <div className="mb-10 flex flex-col-reverse items-center justify-center lg:mt-24 lg:flex-row">
         <div className="flex flex-col lg:mb-20 lg:mr-32">
           <Reveal>
-            <h3 className="text-custom-h3 mb-custom-short !font-eco">E INVITATION</h3>
+            <h3 className="text-custom-h3 mb-custom-short !font-eco">QR-CODE CHECK IN</h3>
           </Reveal>
           <Reveal>
             <p className="text-custom-p max-w-custom">
-              A personalized e-invitation provides your event details in a
-              design of your choice, and we're here to accommodate any
-              additional requests you may have.
+              With QR Check-In, you can easily confirm guests on event day by
+              scanning their QR codes, automatically updating your guest list
+              for effortless post-event reporting.
             </p>
           </Reveal>
         </div>

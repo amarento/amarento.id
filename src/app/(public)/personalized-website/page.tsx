@@ -4,21 +4,23 @@ import mockup from "../../../../public/mockup.png";
 import whatsapp from "../../../../public/whatsapp.jpg";
 import { useState } from "react";
 
-export default function EInvitation() {
+export default function PersonalizedWebsite() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="relative top-0 flex h-screen w-screen items-center justify-center bg-gradient-to-b from-white to-stone-100  text-dark-green-default">
+    <div className="relative top-0 flex h-screen w-screen items-center justify-center bg-gradient-to-b from-stone-100 to-white pt-20 text-dark-grey-default">
       <div className="mb-10 flex flex-col-reverse items-center justify-center lg:mt-24 lg:flex-row">
         <div className="flex flex-col lg:mb-20 lg:mr-32">
           <Reveal>
-            <h3 className="text-custom-h3 mb-custom-short !font-eco">E INVITATION</h3>
+            <h3 className="text-custom-h3 mb-custom-short !font-eco">
+              PERSONALIZED WEBSITE
+            </h3>
           </Reveal>
           <Reveal>
             <p className="text-custom-p max-w-custom">
-              A personalized e-invitation provides your event details in a
-              design of your choice, and we're here to accommodate any
-              additional requests you may have.
+              A personalized website is a custom-made site designed tailored for
+              your event, featuring essential details like the date, pre-wedding
+              photos and videos, gift options, and a space for wishes.
             </p>
           </Reveal>
         </div>

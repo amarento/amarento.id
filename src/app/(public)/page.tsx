@@ -4,24 +4,19 @@ import { useRef, useState, useEffect } from "react";
 import {
   AnimatePresence,
   motion,
-  MotionValue,
   useInView,
   useMotionValue,
-  useSpring,
-  useTransform,
 } from "framer-motion";
-import Homepage2 from "./splash/page";
-import Contact2 from "./contact/page";
-import FAQ2 from "./faq/page";
-import Services2 from "./service/page";
 import ScrollContainer from "../_components/scroll-container";
 import { scrollEffect } from "../_components/scroll-effect";
 
-import LocomotiveScroll from "locomotive-scroll";
-import { ReactLenis, useLenis } from 'lenis/react'
-
-
-const scroll = new LocomotiveScroll();
+import Splash from "./splash/page";
+import WhatsappRSVP from "./whatsapp-rsvp/page";
+import QRCode from "./qr-code/page";
+import PersonalizedWebsite from "./personalized-website/page";
+import EInvitation from "./e-invitation/page";
+import Contact from "./contact/page";
+import FAQ from "./faq/page";
 
 export default function App() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -31,38 +26,24 @@ export default function App() {
   const { currentIndex: indexNumber, scrollToIndex } = scrollEffect(scrollRef);
 
   const currentIndex = useMotionValue(indexNumber);
+  const [showInitialPage, setShowInitialPage] = useState(true);
 
-  useEffect(() => {
-    currentIndex.set(indexNumber);
-  }, [indexNumber]);
-
-  const [ showInitialPage, setShowInitialPage ] = useState(true);
-
-  useEffect(() => {
-    // Ensure this code only runs in the browser
-    if (typeof window !== "undefined") {
-      const scroll = new LocomotiveScroll();
-      
-      if (currentIndex.get() === 0 && isInView) {
-        setShowInitialPage(false);
-        scrollToIndex(0); // Scroll snap to the first section
-      }
-    }
-  }, [isInView, currentIndex, scrollToIndex]);
+  useEffect(() => {}, [isInView, currentIndex, scrollToIndex]);
 
   return (
-    <motion.main
-      ref={containerRef}
-      className="transition-colors duration-500 ease-in-out h-screen w-screen"
-    >
-      <AnimatePresence mode="wait">
-        <ScrollContainer ref={scrollRef}>
-          {showInitialPage && <Homepage2 />}
-          <Services2 />
-          <FAQ2 />
-          <Contact2 />
-        </ScrollContainer>
-      </AnimatePresence>
-    </motion.main>
+    <main className="">
+        <AnimatePresence mode="wait">
+          <ScrollContainer ref={scrollRef}>
+            {showInitialPage && <Splash />}
+
+            <WhatsappRSVP />
+            <QRCode />
+            <PersonalizedWebsite />
+            <EInvitation />
+            <FAQ />
+            <Contact />
+          </ScrollContainer>
+        </AnimatePresence>
+    </main>
   );
 }

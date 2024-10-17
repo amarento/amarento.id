@@ -7,7 +7,7 @@ export default function PublicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="absolute font-lora">
+    <section className="fixed">
       <Navbar />
       {children}
       {/* <Footer /> */}

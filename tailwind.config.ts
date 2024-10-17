@@ -54,7 +54,7 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         "white-primary": {
-          default: "#FFFEF2"
+          default: "#F5F5F5"
         },
         "white-secondary": {
           default: "#F6F5E8"
@@ -73,8 +73,10 @@ const config = {
         }
       },
       fontFamily: {
-        lagency: ["var(--font-lagency)", "serif", ...fontFamily.serif],
-        lora: ['Lora', 'serif'],
+        crimson: ['Crimson', 'serif'],
+        helvetica: ["var(--font-helvetica)", "sans-serif", ...fontFamily.sans],
+        eco: ["var(--font-eco)", "sans-serif", ...fontFamily.sans],
+        ecoItalic: ["var(--font-eco-italic)", "sans-serif", ...fontFamily.sans],
       },
       borderRadius: {
         lg: "var(--radius)",
