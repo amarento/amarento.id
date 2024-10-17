@@ -91,7 +91,7 @@ export const guestInfo = createTable("guestInfo", {
   note: varchar("note", { length: 256 }),
   address: varchar("address", { length: 256 }),
   guestId: integer("guest_id")
-    .references(() => guests.id)
+    .references(() => guests.id, { onDelete: "cascade" })
     .notNull(),
   createdAt: timestamp("created_at", { withTimezone: true })
     .default(sql`CURRENT_TIMESTAMP`)
