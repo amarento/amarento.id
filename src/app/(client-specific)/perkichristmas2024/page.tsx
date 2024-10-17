@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import Snowfall from "react-snowfall";
 import { z } from "zod";
 import { useServerAction } from "zsa-react";
-import { addGuestByClient } from "~/app/(private)/dashboard/clients/[id]/_actions";
+import { addChristmasGuest } from "~/app/(private)/dashboard/clients/[id]/_actions";
 import { Button } from "~/components/ui/button";
 import {
   Form,
@@ -21,7 +21,7 @@ import {
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import { useToast } from "~/components/ui/use-toast";
-import { type NewGuest } from "~/server/db/schema";
+import { type addChristmasGuestSchema } from "~/server/contracts";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -48,7 +48,7 @@ export default function Page() {
 
   /** state for add client action */
   const router = useRouter();
-  const { isPending, execute } = useServerAction(addGuestByClient, {
+  const { isPending, execute } = useServerAction(addChristmasGuest, {
     onSuccess: () => {
       toast({
         title: "✅ Registration successful.",
@@ -66,12 +66,18 @@ export default function Page() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const guest: NewGuest = {
+    const guest: z.infer<typeof addChristmasGuestSchema> = {
       invNames: values.name,
       waNumber: values.whatsapp,
       nRSVPPlan: 1,
       clientId: 1,
+      note: values.dietary,
+      address: values.address,
     };
+
+    console.log("adding ", guest);
+
+    /** action to add guest and guest information. */
     await execute(guest);
   }
 

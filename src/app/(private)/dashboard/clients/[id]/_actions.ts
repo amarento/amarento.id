@@ -1,12 +1,16 @@
 "use server";
 
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { createServerAction, ZSAError } from "zsa";
-import { addGuestSchema, type UserMessage } from "~/server/contracts";
+import {
+  addChristmasGuestSchema,
+  addGuestSchema,
+  type UserMessage,
+} from "~/server/contracts";
 import { db } from "~/server/db";
-import { clients, guests } from "~/server/db/schema";
+import { clients, guestInfo, guests } from "~/server/db/schema";
 import { _axios } from "../../action";
 
 export const getRSVPStates = async () => {
@@ -33,20 +37,33 @@ export const addGuestsByClient = createServerAction()
     revalidatePath("/dashboard");
   });
 
-/** add single guest. */
-export const addGuestByClient = createServerAction()
-  .input(addGuestSchema)
+/** add single guest with additional information. */
+export const addChristmasGuest = createServerAction()
+  .input(addChristmasGuestSchema)
   .handler(async ({ input }) => {
     /** validate guest existance. */
-    const guest = await db.query.guests.findFirst({
-      where: eq(guests.invNames, input.invNames),
+    const _guest = await db.query.guests.findFirst({
+      where: and(
+        eq(guests.invNames, input.invNames),
+        eq(guests.clientId, input.clientId),
+      ),
     });
 
-    if (guest !== undefined)
+    if (_guest !== undefined)
       throw new ZSAError(
         "CONFLICT",
         "Uh oh! You are already registered to our event. 💚",
       );
 
-    await db.insert(guests).values(input);
+    /** add guest. */
+    const guest = await db
+      .insert(guests)
+      .values(input)
+      .returning()
+      .then((res) => res.at(0));
+
+    /** add guest information. */
+    await db
+      .insert(guestInfo)
+      .values({ guestId: guest!.id, note: input.note, address: input.address });
   });

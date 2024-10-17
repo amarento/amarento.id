@@ -40,3 +40,12 @@ export const addGuestSchema = z.object({
 export const sendReminderMessageWithQRSchema = z.object({
   code: z.string(),
 });
+
+export const addChristmasGuestSchema = z.object({
+  invNames: z.string(),
+  waNumber: z.string(),
+  nRSVPPlan: z.number(),
+  clientId: z.number(),
+  note: z.string().optional(),
+  address: z.string(),
+});

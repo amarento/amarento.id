@@ -20,7 +20,7 @@
 - [ ] perkiaachen
   - [ ] registration form
     - [ ] Add countdown.
-    - [ ] Create new database and relationships.
+    - [x] Create new database and relationships.
     - [ ] Add dashboard to manage people.
   - [ ] whatsapp bot
     - [ ] Add logic to update rsvp after replying.

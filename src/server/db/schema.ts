@@ -84,10 +84,31 @@ export const guests = createTable(
   }),
 );
 
+export type NewGuestInfo = typeof guestInfo.$inferInsert;
+export type GuestInfo = typeof guestInfo.$inferSelect;
+
+export const guestInfo = createTable("guestInfo", {
+  note: varchar("note", { length: 256 }),
+  address: varchar("address", { length: 256 }),
+  guestId: integer("guest_id")
+    .references(() => guests.id)
+    .notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true })
+    .$onUpdate(() => new Date())
+    .notNull(),
+});
+
 export const guestsRelations = relations(guests, ({ one }) => ({
   client: one(clients, {
     fields: [guests.clientId],
     references: [clients.id],
+  }),
+  guestInfo: one(guestInfo, {
+    fields: [guests.id],
+    references: [guestInfo.guestId],
   }),
 }));
 
