@@ -4,15 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "next build",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate",
-    "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio",
-    "db:seed": "npx tsx .\\src\\server\\db\\seed.ts",
-    "dev": "next dev",
-    "lint": "next lint",
-    "start": "next start"
+    "build": "yarn next build",
+    "db:generate": "yarn drizzle-kit generate",
+    "db:migrate": "yarn drizzle-kit migrate",
+    "db:push": "yarn drizzle-kit push",
+    "db:studio": "yarn drizzle-kit studio",
+    "db:seed": "yarn tsx .\\src\\server\\db\\seed.ts",
+    "dev": "yarn next dev",
+    "lint": "yarn next lint",
+    "start": "yarn next start"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.1.0",
