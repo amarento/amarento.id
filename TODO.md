@@ -22,8 +22,8 @@
     - [ ] Add countdown.
     - [x] Create new database and relationships.
     - [ ] Add dashboard to manage people.
-  - [ ] whatsapp bot
-    - [ ] Add logic to update rsvp after replying.
+  - [x] whatsapp bot
+    - [x] Add logic to update rsvp after replying.
   - [ ] scanner
     - [ ] Add scanner home page.
     - [ ] Add logic to connect to bluetooth and print sticker.
